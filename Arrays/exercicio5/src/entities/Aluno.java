@@ -1,0 +1,27 @@
+package entities;
+
+public class Aluno {
+    
+    private String name;
+    private String email;
+
+    public Aluno() {
+        
+    }
+
+    public Aluno (String name, String email) {
+        this.name = name;
+        this.email = email;
+        
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+   
+}
