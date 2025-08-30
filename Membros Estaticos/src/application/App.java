@@ -20,5 +20,7 @@ public class App {
         dollar = sc.nextDouble();
 
         System.out.printf("Amount to be paid in reais: %.2f", converter.dollarToReal(dollarPrice, dollar));
+
+        sc.close();
     }
 }
