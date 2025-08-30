@@ -15,11 +15,9 @@ public class App {
     
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        Department department = new Department();
 
         System.out.print("Enter Department's name: ");
         String departmentName = sc.next();
-        department.setName(departmentName);
 
 
         System.out.println("Enter Worker's data: ");
@@ -60,7 +58,7 @@ public class App {
         String monthAndYear = sc.next();
         int month = Integer.parseInt(monthAndYear.substring(0,2)); 
         int year = Integer.parseInt(monthAndYear.substring(3));
-        System.out.println("Department: " + department.getName());
+        System.out.println("Department: " + worker.getDepartment().getName());
         System.out.println("Name: " + worker.getName());
         double income = worker.income(year, month);
 
