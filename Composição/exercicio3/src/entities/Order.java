@@ -1,6 +1,6 @@
 package entities;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,15 +8,26 @@ import enums.OrderStatus;
 
 public class Order {
 
-    private LocalDate moment;
+    private LocalDateTime moment;
     private OrderStatus status;
-    
+    private Client client;
+
     List<OrderItem> itens = new ArrayList<>();
 
-    public LocalDate getMoment() {
+    public Order() {
+
+    }
+
+    public Order(LocalDateTime moment, OrderStatus status, Client client){
+        this.moment = moment;
+        this.status = status;
+        this.client = client;
+    }
+
+    public LocalDateTime getMoment() {
         return moment;
     }
-    public void setMoment(LocalDate moment) {
+    public void setMoment(LocalDateTime moment) {
         this.moment = moment;
     }
     public OrderStatus getStatus() {
@@ -24,6 +35,12 @@ public class Order {
     }
     public void setStatus(OrderStatus status) {
         this.status = status;
+    }
+    public Client getClient() {
+        return client;
+    }
+    public void setClient(Client client) {
+        this.client = client;
     }
     public void addItem (OrderItem item) {
         itens.add(item);
