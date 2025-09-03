@@ -1,6 +1,7 @@
 package entities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,8 @@ public class Order {
     private LocalDateTime moment;
     private OrderStatus status;
     private Client client;
+
+    public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     List<OrderItem> itens = new ArrayList<>();
 
@@ -27,21 +30,27 @@ public class Order {
     public LocalDateTime getMoment() {
         return moment;
     }
+
     public void setMoment(LocalDateTime moment) {
         this.moment = moment;
     }
+
     public OrderStatus getStatus() {
         return status;
     }
+
     public void setStatus(OrderStatus status) {
         this.status = status;
     }
+
     public Client getClient() {
         return client;
     }
+
     public void setClient(Client client) {
         this.client = client;
     }
+
     public void addItem (OrderItem item) {
         itens.add(item);
     }
@@ -56,5 +65,23 @@ public class Order {
             total += item.getPrice() * item.getQuantity();
         }
         return total;
+    }
+
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Order moment: " + moment.format(formatter) + "\n");
+        sb.append("Order status: " + status + "\n"); 
+        sb.append("Client: " + client);
+        sb.append("\n");
+        sb.append("Order items: \n");
+        for(OrderItem item : itens) {
+            sb.append(item + "\n");
+        }
+        sb.append("\n Total: $");
+        sb.append(String.format("%.2f", total()));
+
+        return sb.toString();
+
     }
 }

@@ -2,6 +2,7 @@ package application;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -21,18 +22,15 @@ public class App {
         System.out.println();
 
         System.out.print("Name: ");
-        String name = sc.next();
+        String name = sc.nextLine();
         System.out.print("E-mail: ");
         String email = sc.next();
         System.out.print("Birth Date: ");
         String birthDate = sc.next();
-        //13/02/1999
 
-        int year = Integer.parseInt(birthDate.substring(6));
-        int month = Integer.parseInt(birthDate.substring(3, 5));
-        int day = Integer.parseInt(birthDate.substring(0, 2));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyy");
 
-        LocalDate birth = LocalDate.of(year,month,day);
+        LocalDate birth = LocalDate.parse(birthDate, formatter);
 
         System.out.println();
 
@@ -42,7 +40,7 @@ public class App {
         System.out.print("Status: ");
         OrderStatus status = OrderStatus.valueOf(sc.next());
 
-        new Order(LocalDateTime.now() , status, client);
+        Order order = new Order(LocalDateTime.now() , status, client);
 
         System.out.print("How many itens for this order?");
         int n = sc.nextInt();
@@ -50,8 +48,9 @@ public class App {
         String productName;
         double productPrice;
         int quantity;
-        for (int i = 1; i == n; i++) {
-            System.out.println("Enter #" + i + "item data:");
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter #" + (i+1) + " item data:");
             System.out.println("Product Name: ");
             sc.nextLine();
             productName = sc.next();
@@ -60,9 +59,14 @@ public class App {
             System.out.println("Quantity: ");
             quantity = sc.nextInt();
 
-            new OrderItem(quantity,productPrice);
-            new Product(productName, productPrice);
+           order.addItem(new OrderItem(quantity,productPrice, new Product(productName, productPrice)));
+           
+           System.out.println();
+            
         }
+
+        System.out.println(order);
+        
         sc.close();
     }
 }
