@@ -40,7 +40,7 @@ public class Account{
    }
 
    public void withdraw(Double amount) {
-     balance -= amount - 5.0;
+     balance -= amount + 5.0;
    }
 
    public void deposit(Double amount) {
@@ -52,7 +52,7 @@ public class Account{
 
         sb.append("Holder: " + holder + "\n");
         sb.append("Account Number: " + number + "\n");
-        sb.append("Balance: " + balance + "\n");
+        sb.append("Balance: " + String.format("%.2f" ,balance) + "\n");
 
         return sb.toString();
 

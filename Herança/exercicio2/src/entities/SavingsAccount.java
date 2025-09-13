@@ -31,7 +31,7 @@ public class SavingsAccount extends Account{
 
         sb.append("Holder: " + holder + "\n");
         sb.append("Account Number: " + number + "\n");
-        sb.append("Balance: " + balance + "\n");
+        sb.append("Balance: " + String.format("%.2f", balance) + "\n");
         sb.append("Interest Rate: " + interestRate + "\n");
 
 

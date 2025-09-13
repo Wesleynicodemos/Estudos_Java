@@ -3,6 +3,7 @@ package application;
 import java.util.Locale;
 
 import entities.Account;
+import entities.BusinessAccount;
 import entities.SavingsAccount;
 
 public class App {
@@ -14,13 +15,28 @@ public class App {
 
         System.out.println(account);
 
-        SavingsAccount Account2 = new SavingsAccount(1999, "Nicodemos", 5000.00, 0.05);
+        //UPCASTING
+        Account account2 = new SavingsAccount(1999, "Marcos", 5000.00, 0.05);
 
-        System.out.println(Account2);
+        System.out.println(account2);
 
-        Account2.withdraw(1000.00);
+        account2.withdraw(1000.00);
 
-        System.out.println(Account2.getBalance());
+        System.out.println(account2.getBalance());
+
+        //UPCASTING
+
+        BusinessAccount account3 = new BusinessAccount(2019, "Mike", 10000.00, 100000.00);
+
+        System.out.println();
+        System.out.println(account3);
+        System.out.println("Depois do emprestimo:");
+        account3.loan(1000.00);
+        System.out.println("Retirada:");
+        account3.withdraw(1000.00);
+        System.out.println(account3.getBalance());
+        System.out.println("Depois do emprestimo:");
+        account3.loan(1000000.01);
 
     }
 }

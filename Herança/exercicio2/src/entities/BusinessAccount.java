@@ -21,6 +21,29 @@ public class BusinessAccount extends Account {
     }
 
     public void loan(Double amount) {
-        balance += amount;
+        if (amount < loanLimit) {
+            balance += amount;
+        } else {
+            System.out.println("Limite excedido.");
+        }
+    }
+
+    @Override
+    public void withdraw(Double amount) {
+        super.withdraw(amount);
+        balance -= 2.0;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Holder: " + holder + "\n");
+        sb.append("Account Number: " + number + "\n");
+        sb.append("Balance: " + String.format("%.2f", balance) + "\n");
+        sb.append("Loan Limit: " + String.format("%.2f", loanLimit) + "\n");
+
+
+        return sb.toString();
     }
 }
