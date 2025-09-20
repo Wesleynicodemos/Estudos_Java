@@ -19,4 +19,9 @@ public class OutsourcedEmployee extends Employee {
     public void setAdditionalCharge(Double additionalCharge) {
         this.additionalCharge = additionalCharge;
     }
+
+    @Override
+    public Double salary() {
+        return hours * valuePerHour + (additionalCharge * 1.1);
+    }
 }

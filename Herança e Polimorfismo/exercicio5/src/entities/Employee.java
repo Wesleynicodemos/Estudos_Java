@@ -39,7 +39,11 @@ public class Employee {
         this.valuePerHour = valuePerHour;
     }
 
+    public Double salary(){
+        return hours * valuePerHour;
+    }
+
     public String toString() {
-        return "Name: " + name + "\nValue per Hour: " + String.format("%.2f", valuePerHour) + "\nHours: " + hours;
+        return "Name: " + name + " - $" + salary();
     }
 }
