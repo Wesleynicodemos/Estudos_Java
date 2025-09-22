@@ -20,7 +20,7 @@ public class App {
         int n = sc.nextInt();
 
         for(int i = 0; i < n; i++) {
-            System.out.println("Employee #"+ (n+1) + "data: ");
+            System.out.println("Employee #"+ (i+1) + " data: ");
             System.out.println("Outsourced (y/n)? ");
             sc.nextLine();
             String answer = sc.next();
