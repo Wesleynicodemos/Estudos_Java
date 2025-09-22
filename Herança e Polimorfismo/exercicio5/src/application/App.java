@@ -59,6 +59,9 @@ public class App {
             }
         }
 
+        System.out.println();
+        System.out.println("Payments: ");
+
         for(Employee employee : employees) {
             System.out.println(employee);
         }
