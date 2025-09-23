@@ -27,7 +27,7 @@ public class ImportedProduct extends Product{
     @Override
     public String PriceTag() {
         StringBuilder sb = new StringBuilder();
-        sb.append(name);
+        sb.append(getName());
         sb.append(" $ ");
         sb.append(String.format("%.2f", finalPrice()));
         sb.append("(Customs Fee: $ " + String.format("%.2f", customsFee));

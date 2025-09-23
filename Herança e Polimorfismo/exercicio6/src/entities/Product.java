@@ -31,7 +31,7 @@ public class Product {
 
     public String PriceTag() {
         StringBuilder sb = new StringBuilder();
-        sb.append(name);
+        sb.append(getName());
         sb.append(" $ ");
         sb.append(String.format("%.2f", price));
         return sb.toString();
